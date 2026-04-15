@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dummy Gaming Site</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background: #020617;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    header h1 {
+      color: #22c55e;
+      margin: 0;
+    }
+
+    .btn {
+      background: #22c55e;
+      color: black;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: radial-gradient(circle, #1e293b, #020617);
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #94a3b8;
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid #1e293b;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      border-color: #22c55e;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>DummyStake</h1>
+  <a href="#" class="btn">Login</a>
+</header>
+
+<section class="hero">
+  <h2>Welcome to the Dummy Gaming Experience 🎰</h2>
+  <p>This is a demo site for UI testing only. No real gambling or transactions.</p>
+  <a href="#" class="btn">Play Demo</a>
+</section>
+
+<section class="games">
+  <div class="card">
+    <h3>🎲 Dice</h3>
+    <p>Test your luck (demo only)</p>
+  </div>
+  <div class="card">
+    <h3>🃏 Cards</h3>
+    <p>Blackjack-style demo</p>
+  </div>
+  <div class="card">
+    <h3>🎡 Wheel</h3>
+    <p>Spin for fun</p>
+  </div>
+  <div class="card">
+    <h3>🎰 Slots</h3>
+    <p>Just visuals, no payouts</p>
+  </div>
+</section>
+
+<footer>
+  ⚠️ This is a fake/demo website created for testing GitHub Pages. No real betting.
+</footer>
+
+</body>
+</html>
