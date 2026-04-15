@@ -1,164 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dummy Gaming Site</title>
+<meta charset="UTF-8">
+<title>Stake Clone UI</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-    }
+body {
+  background: #0f1c24;
+  color: #fff;
+  display: flex;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 30px;
-      background: #020617;
-      border-bottom: 1px solid #1e293b;
-      align-items: center;
-    }
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #13232d;
+  padding: 20px;
+  height: 100vh;
+}
 
-    header h1 {
-      color: #22c55e;
-      margin: 0;
-    }
+.sidebar h2 {
+  margin-bottom: 20px;
+}
 
-    .btn {
-      background: #22c55e;
-      color: black;
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.sidebar ul {
+  list-style: none;
+}
 
-    .hero {
-      position: relative;
-      text-align: center;
-      padding: 120px 20px;
-      background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-    }
+.sidebar ul li {
+  padding: 10px 0;
+  color: #aaa;
+  cursor: pointer;
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(2, 6, 23, 0.7);
-    }
+.sidebar ul li:hover {
+  color: #fff;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+}
 
-    .hero h2 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .hero p {
-      color: #cbd5f5;
-      margin-bottom: 20px;
-    }
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
 
-    .games {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
+.auth button {
+  padding: 8px 15px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    .card {
-      background: #020617;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #1e293b;
-      transition: 0.25s;
-    }
+.login {
+  background: #2c3e50;
+  color: #fff;
+}
 
-    .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-    }
+.register {
+  background: #2d7df6;
+  color: #fff;
+}
 
-    .card-content {
-      padding: 15px;
-      text-align: center;
-    }
+/* Hero */
+.hero {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
 
-    .card:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: #22c55e;
-    }
+.hero-text {
+  max-width: 50%;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #64748b;
-      font-size: 14px;
-    }
-  </style>
+.hero-text h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.hero-text button {
+  padding: 10px 20px;
+  background: #2d7df6;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  width: 200px;
+  height: 140px;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+
+.card.casino {
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+}
+
+.card.sports {
+  background: linear-gradient(135deg, #00c853, #2e7d32);
+}
+
+/* Search */
+.search {
+  margin-top: 30px;
+}
+
+.search input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #1b2c36;
+  color: #fff;
+}
+
+/* Games */
+.games {
+  margin-top: 30px;
+}
+
+.games h2 {
+  margin-bottom: 15px;
+}
+
+.game-list {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+}
+
+.game {
+  min-width: 140px;
+  height: 180px;
+  background: #1b2c36;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.game:hover {
+  background: #223845;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>Lisandrus DummyStake</h1>
-  <a href="#" class="btn">Login</a>
-</header>
+<div class="sidebar">
+  <h2>Stake</h2>
+  <ul>
+    <li>Promotions</li>
+    <li>Affiliate</li>
+    <li>VIP Club</li>
+    <li>Blog</li>
+    <li>Forum</li>
+    <li>Responsible Gambling</li>
+    <li>Live Support</li>
+  </ul>
+</div>
 
-<section class="hero">
-  <div class="hero-content">
-    <h2>Welcome to the Demo Casino 🎰</h2>
-    <p>Experience the UI. No real gambling involved.</p>
-    <a href="#" class="btn">Play Demo</a>
-  </div>
-</section>
+<div class="main">
 
-<section class="games">
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=800&auto=format&fit=crop">
-    <div class="card-content">
-      <h3>🎰 Slots</h3>
-      <p>Spin just for fun</p>
+  <div class="topbar">
+    <div class="logo">Stake</div>
+    <div class="auth">
+      <button class="login">Login</button>
+      <button class="register">Register</button>
     </div>
   </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=800&auto=format&fit=crop">
-    <div class="card-content">
-      <h3>🎲 Dice</h3>
-      <p>Test your luck</p>
+  <div class="hero">
+    <div class="hero-text">
+      <h1>The World's Largest Online Casino and Sportsbook</h1>
+      <button>Register</button>
+    </div>
+
+    <div class="cards">
+      <div class="card casino">Casino</div>
+      <div class="card sports">Sports</div>
     </div>
   </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1606166325695-3c6d0a0d9c91?q=80&w=800&auto=format&fit=crop">
-    <div class="card-content">
-      <h3>🃏 Blackjack</h3>
-      <p>Classic cards demo</p>
+  <div class="search">
+    <input type="text" placeholder="Search your game...">
+  </div>
+
+  <div class="games">
+    <h2>Trending Games</h2>
+    <div class="game-list">
+      <div class="game">Sweet Fiesta</div>
+      <div class="game">Gates of Olympus</div>
+      <div class="game">Sweet Bonanza</div>
+      <div class="game">Jelly Express</div>
+      <div class="game">Airstrike</div>
+      <div class="game">Sugar Rush</div>
+      <div class="game">Bank Blast</div>
+      <div class="game">Super Scatter</div>
     </div>
   </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?q=80&w=800&auto=format&fit=crop">
-    <div class="card-content">
-      <h3>🎡 Wheel</h3>
-      <p>Spin & relax</p>
-    </div>
-  </div>
-
-</section>
-
-<footer>
-  ⚠️ Demo website for GitHub Pages testing only. No real betting or transactions.
-</footer>
+</div>
 
 </body>
 </html>
