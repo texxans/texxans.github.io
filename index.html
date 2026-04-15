@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dummy Gaming Site</title>
+
   <style>
     body {
       margin: 0;
@@ -18,6 +19,7 @@
       padding: 15px 30px;
       background: #020617;
       border-bottom: 1px solid #1e293b;
+      align-items: center;
     }
 
     header h1 {
@@ -28,45 +30,69 @@
     .btn {
       background: #22c55e;
       color: black;
-      padding: 8px 14px;
+      padding: 10px 16px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
     }
 
     .hero {
+      position: relative;
       text-align: center;
-      padding: 80px 20px;
-      background: radial-gradient(circle, #1e293b, #020617);
+      padding: 120px 20px;
+      background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.7);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     .hero h2 {
-      font-size: 40px;
+      font-size: 42px;
       margin-bottom: 10px;
     }
 
     .hero p {
-      color: #94a3b8;
+      color: #cbd5f5;
+      margin-bottom: 20px;
     }
 
     .games {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       padding: 40px;
     }
 
     .card {
       background: #020617;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
+      border-radius: 12px;
+      overflow: hidden;
       border: 1px solid #1e293b;
-      transition: 0.2s;
+      transition: 0.25s;
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+      text-align: center;
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: translateY(-6px) scale(1.02);
       border-color: #22c55e;
     }
 
@@ -78,6 +104,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -86,32 +113,51 @@
 </header>
 
 <section class="hero">
-  <h2>Welcome to the Dummy Gaming Experience 🎰</h2>
-  <p>This is a demo site for UI testing only. No real gambling or transactions.</p>
-  <a href="#" class="btn">Play Demo</a>
+  <div class="hero-content">
+    <h2>Welcome to the Demo Casino 🎰</h2>
+    <p>Experience the UI. No real gambling involved.</p>
+    <a href="#" class="btn">Play Demo</a>
+  </div>
 </section>
 
 <section class="games">
+
   <div class="card">
-    <h3>🎲 Dice</h3>
-    <p>Test your luck (demo only)</p>
+    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=800&auto=format&fit=crop">
+    <div class="card-content">
+      <h3>🎰 Slots</h3>
+      <p>Spin just for fun</p>
+    </div>
   </div>
+
   <div class="card">
-    <h3>🃏 Cards</h3>
-    <p>Blackjack-style demo</p>
+    <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=800&auto=format&fit=crop">
+    <div class="card-content">
+      <h3>🎲 Dice</h3>
+      <p>Test your luck</p>
+    </div>
   </div>
+
   <div class="card">
-    <h3>🎡 Wheel</h3>
-    <p>Spin for fun</p>
+    <img src="https://images.unsplash.com/photo-1606166325695-3c6d0a0d9c91?q=80&w=800&auto=format&fit=crop">
+    <div class="card-content">
+      <h3>🃏 Blackjack</h3>
+      <p>Classic cards demo</p>
+    </div>
   </div>
+
   <div class="card">
-    <h3>🎰 Slots</h3>
-    <p>Just visuals, no payouts</p>
+    <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?q=80&w=800&auto=format&fit=crop">
+    <div class="card-content">
+      <h3>🎡 Wheel</h3>
+      <p>Spin & relax</p>
+    </div>
   </div>
+
 </section>
 
 <footer>
-  ⚠️ This is a fake/demo website created for testing GitHub Pages. No real betting.
+  ⚠️ Demo website for GitHub Pages testing only. No real betting or transactions.
 </footer>
 
 </body>
